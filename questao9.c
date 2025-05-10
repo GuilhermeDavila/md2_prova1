@@ -72,11 +72,11 @@ int main() {
     scanf("%d %d %d %d %d", &H, &G, &n, &x, &n1);
 
     printf("\nPasso 1: Verificando se G e n sao primos:\n");
-    if (!eh_primo(G) || !eh_primo(n)) {
-        printf("G ou n nao sao primos. A divisao modular nao e possivel.\n");
+    if (mdc(G, n) != 1) {
+        printf("G e n nao sao coprimos. O inverso modular nao existe.\n");
         return 1;
     }
-    printf("G e n sao primos.\n");
+    printf("G e n sao coprimos.\n");
 
     printf("\nPasso 2: Calculando o inverso de G em Z%d:\n", n);
     int g_inv;
